@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta>
+        <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<style>
+
+body{
+background:grey;
+height:100vh;
+width: 100vw;
+margin:0;
+font-family: 'Great Vibes';
+overflow:hidden;
+}
+#header{
+background:black;
+width: 100%;
+height: 5%;
+top:0;
+position:relative;
+}
+#footer{
+background:black;
+width: 100%;
+height: 5%;
+bottom: 0;
+position: absolute;
+}
+#main{
+background:beige;
+width: 100%;
+height: 90%;
+position: absolute;
+background-image: url(Images/papier4.jpg);
+background-size:100% 100%;
+}
+#map{
+background-image:url(Images/carte2.png);
+background-size:100% 100%;
+width:100%;
+height:100%;
+}
+.origin{
+width: 10vh;
+height:3vw;
+position:absolute;
+font-size:2.5vh;
+font-weight: bold;
+-webkit-transition: color 0.8s; /* Safari */
+transition: color 0.8s;
+}
+.origin:hover{
+color: #9d3e0c;
+cursor:pointer;
+}
+#ceylan{
+top:59%;
+left:67.75%;
+}
+#inde{
+top:44%;
+left:68%;
+}
+#chine{
+top:42%;
+left:77%;
+}
+#coree{
+top:34%;
+left:80.5%;
+}
+#japon{
+top:42%;
+left:84%;
+}
+#formose{
+top:47.9%;
+left:81%;
+}
+#java{
+top:67.8%;
+left:75.2%;
+}
+#nzelande{
+top:87%;
+left:90%;
+
+}
+#nepal{
+top:40%;
+left:70%;
+}
+#perse{
+top:39.5%;
+left:63%;
+}
+#afriqueorientale{
+top:53%;
+left:55%;
+}
+#afriqueaustrale{
+top:72%;
+left:52%;
+}
+#caucase{
+top:37%;
+left:57.2%;
+}
+#ilemaurice{
+top:72%;
+left:63.2%;
+}
+#france{
+top:31%;
+left:46.9%;
+}
+#colombie{
+top:60%;
+left:26%;
+}
+#argentine{
+top:84.5%;
+left:27.2%;
+}
+#triangle{
+top:49%;
+left:74%;
+}
+#ecosse{
+top:22%;
+left:42.8%;
+}
+
+#compass{
+height:15vh;
+width:15vh;
+background: url(Images/boussole.png);
+background-size: 100% 100%;
+top:35%;
+left: 33%;
+position:absolute;
+}
+#sampan{
+height:11vh;
+width:11vh;
+background:url(Images/sampan.png);
+background-size: 100% 100%;
+top: 39%;
+left: 88%;
+position:absolute;
+-webkit-transition: filter 0.8s; /* Safari */
+transition: filter 0.8s;
+}
+#Schooner{
+height:12vh;
+width:15vh;
+background:url(Images/Schooner.png);
+background-size: 100% 100%;
+top: 79%;
+left: 39%;
+position:absolute;
+}
+#chameau{
+height:8.5vh;
+width:10.5vh;
+background:url(Images/chameau.png);
+background-size: 100% 100%;
+top: 29%;
+left: 65%;
+position:absolute;
+}
+#cosaque{
+height:10.5vh;
+width:12.5vh;
+background:url(Images/moscou.png);
+background-size: 100% 100%;
+top: 21%;
+left: 54%;
+position:absolute;
+}
+
+#mflogo{
+height:25vh;
+width:25vh;
+background:url(Images/mflogo.png);
+background-size: 100% 100%;
+top:69%;
+left: 7%;
+position:absolute;
+opacity:1;
+transition:opacity .5s linear
+}
+#mflogo:hover{
+opacity:0.6;
+cursor:pointer;;
+}
+#display{
+width: 0vw;
+background-image: url(Images/papier4.jpg);
+background-size:100% 100%;
+color: #F5F5DC;
+margin-top: 0vh;
+position:absolute;
+margin-left: 17.5vw;
+z-index:1;
+text-align:center;
+padding-bottom:5vh;
+padding-top:2vh;
+overflow-y: auto;
+overflow:hidden;
+height:90vh;
+box-shadow: 12px 0 15px -4px grey, -12px 0 8px -4px grey;
+}
+#displayimg{
+max-width:0%;
+height:50vh;
+border-width:5px;  
+border-style:ridge;
+}
+#displaytxt{
+margin-top:1%;
+width:90%;
+margin-left:5%;
+text-align:justify;
+overflow:auto;
+max-height:24%;
+font-size:3vh;
+display:none;/*pour le fadeIn*/
+font-family: "Times New Roman";
+color:black;
+}
+/* width */
+::-webkit-scrollbar {
+width: 1vh;
+}
+/* Track */
+::-webkit-scrollbar-track {
+box-shadow: inset 0 0 5px grey;
+border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+background:grey;
+border-radius: 10px;
+}
+::-webkit-scrollbar-track{
+height:20%;
+}
+::-webkit-scrollbar-thumb:hover {
+background: #C8AD7F;
+}
+.displayclose1{
+height:3vw;
+width: 3vw;
+position:absolute;
+left:95%;
+color:black;
+z-index:2;
+margin-top:-1%;
+font-family: "Arial";
+}
+.displayclose1:hover{
+color:white;
+cursor:context-menu;
+}
+#imgcontainer{
+  width:90%;
+  position:relative;
+  margin-left:5%;
+}
+#decouvrir {
+  height: 5%;
+  margin-top:1%;
+  color:black;
+  font-weight:bold;
+  text-decoration: underline;
+  font-size:3.5vh;
+  -webkit-transition: color 0.8s; /* Safari */
+transition: color 0.8s;
+display:none;/*pour le fadeIn*/
+}
+#decouvrir:hover{
+  color:grey;
+  cursor:pointer;
+}
+#mfbar {
+  background-image: url(Images/mfbar.png);
+  height: 10%;
+  width:100%;
+  background-size:100% 100%;
+  margin:auto;
+background-repeat: no-repeat;
+}
+.history {
+background-image: url(Images/teapot.png);
+background-size:cover;
+height:4vh;
+width:4vh;
+position:absolute;
+-webkit-transition: opacity 0.8s; /* Safari */
+transition: opacity 0.8s;
+}
+.history:hover{
+opacity:0.6;
+cursor:pointer;;
+}
+#russie{
+  top:24%;
+  left:56%;
+}
+#mongolie{
+  top:27.5%;
+  left:72.5%;
+}
+#maroc{
+  top:41%;
+  left:44.7%; 
+}
+#madagascar{
+  left:57.5%;
+  top:73.5%;
+}
+#usa{
+  top:36.8%;
+  left:23.8%;
+}
+#uk{
+  top:28.9%;
+  left:44.2%;
+}
+#chai{
+  left:68%;
+  top:47.5%;
+}
+#allemagne{
+  top:27.5%;
+  left:49.1%;
+}
+#tibet{
+  left:71.5%;
+  top:36%;
+}
+#yuzu{
+  left:84%;
+  top:35%;
+}
+#sakura{
+  left:86.2%;
+  top:38.5%;
+}
+#hawaii {
+left:3.5%;
+top:50%;
+}
+#jasmin {
+left:74%;
+top:40%;
+}
+#display2{
+width: 0vw;
+background-image: url(Images/papier4.jpg);
+background-size:100% 100%;
+color: #F5F5DC;
+margin-top: 0vh;
+position:absolute;
+margin-left: 17.5vw;
+z-index:1;
+text-align:center;
+padding-bottom:5vh;
+padding-top:2vh;
+overflow-y: auto;
+overflow:hidden;
+height:90vh;
+box-shadow: 12px 0 15px -4px grey, -12px 0 8px -4px grey;
+}
+.list{
+  height:78%;
+  width:90%;
+  margin-left:5%;
+  position:absolute;
+  color:black;
+  overflow:auto;
+  background-color:transparent;
+  display:none;/*important pour le fadein*/
+}
+li{
+  font-family: "Times new Roman";
+  font-size: 3vh;
+  text-align: left;
+    -webkit-transition: color 0.5s; /* Safari */
+transition: color 0.5s;
+font-size:1.5vh;
+}
+h1{
+  text-align: left;
+    font-size:3vh;
+}
+li:hover{
+  color: grey;
+  cursor:pointer;
+}
+#mflogo2{
+  width:15vh;
+  height:15vh;
+  background-image: url(Images/mflogo3.png);
+  background-size:100% 100%;
+  margin:auto;
+  display:none;/*important pour le fadein*/
+}
+</style>
+        
+    </head>
+    
+    <body>
+          
+<div id='header'></div>
+
+<div id='main'>
+
+<div id='map'>
+
+
+
+<div id='display'>
+
+<div class="displayclose1">&times;</div>
+<div id="imgcontainer">
+<img id='displayimg' src=''>
+</div>
+<div id="decouvrir"></div>
+<div id="mfbar"></div>
+<div id='displaytxt'></div>
+
+</div>
+
+
+
+<div id='display2'>
+<div class='displayclose1'>&times;</div>
+<div id='mflogo2'></div>
+<div class="list"></div>
+</div>
+
+
+
+<div id='compass'></div>
+<div id='sampan'></div>
+<div id='mflogo'></div>
+<div id='Schooner'></div>
+<div id='chameau'></div>
+<div id='cosaque'></div>
+
+<div id='ceylan' class='origin'>Ceylan</div>
+<div id='inde' class='origin'>Inde</div>
+<div id='chine' class='origin'>Chine</div>
+<div id='coree' class='origin'>Corée</div>
+<div id='japon' class='origin'>Japon</div>
+<div id='java' class='origin'>Java</div>
+<div id='nzelande' class='origin'>Nouvelle-<br>Zélande</div>
+<div id='nepal' class='origin'>Népal</div>
+<div id='perse' class='origin'>Perse</div>
+<div id='afriqueorientale' class='origin'>Afrique<br>Orientale</div>
+<div id='afriqueaustrale' class='origin'>Afrique<br>Australe</div>
+<div id='caucase' class='origin'>Caucase</div>
+<div id='ilemaurice' class='origin'>Ile Maurice</div>
+<div id='france' class='origin'>France</div>
+<div id='colombie' class='origin'>Colombie</div>
+<div id='argentine' class='origin'>Argentine</div>
+<div id='triangle' class='origin'>Triangle d'Or</div>
+<div id='formose' class='origin'>Formose</div>
+<div id='ecosse' class='origin'>Ecosse</div>
+
+<div id='russie' class="history"></div>
+<div id='mongolie' class="history"></div>
+<div id='maroc' class="history"></div>
+<div id='madagascar' class="history"></div>
+<div id='usa' class="history"></div>
+<div id='uk' class="history"></div>
+<div id='chai' class="history"></div>
+<div id='allemagne' class="history"></div>
+<div id='tibet' class="history"></div>
+<div id='yuzu' class="history"></div>
+<div id='sakura' class="history"></div>
+<div id='hawaii' class="history"></div>
+<div id='jasmin' class="history"></div>
+
+</div>
+</div>
+
+
+<div id='footer'></div>
+
+<script>
+$( document ).ready(function() {
+
+var classname = $(".origin");
+var classname2 = $(".history");
+var loremipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ";
+
+
+
+var countries = {
+name : ["Ceylan", "Formose", "Perse", "Colombie", "Caucase", "Ile Maurice", "Inde", "Népal", "Corée", "Java", "Nouvelle-Zélande", "France", "Chine",
+"Argentine", "Triangle d'Or", "Japon", "Afrique Orientale", "Afrique Australe", "Ecosse"],
+name2 : ["ceylan", "formose", "perse", "colombie", "caucase", "maurice", "inde", "nepal", "coree", "java", "nz", "france", "chine", "argentine", "thailande", "japon", "kenya", "afsud", "ecosse"],
+number : [2, 5, 3, 6, 5, 3, 7, 5, 6, 4, 6, 3, 5, 6, 3, 7, 3, 3, 3],
+article : ["de ", "de ", "de ", "de ", "du ", "de l'", "d'", "du ", "de ", "de ", "de ", "de ", "de ", "d' ", "du ", "du ", "d'", "d'", "d'"],
+regions :[["Nuwara Eliya", "Dimbula", "Uva", "Galle", "Ratnapura"]],
+thes : [["T306 Numara Eliya - Court Lodge OP", "Lover's Leap Pekoe"], ["T302 Pettiagalla OP", "T303 Kenilworth OP1", "T307 Pettiagalla OP", "T313 Dimbula BOP"], ["T3081 Saint-james - Shawlands OP", "T310 Uva Highlands FP", "T312 Saint James BOP", "T3121 Aislaby BOP", "T314 Uva Highlands BOP", "T317 Uva Highlands BOPF", "T330 Black Wood OP1", "T331 Black Wood Pekoe", "T332 Black Wood BOP"], ["T300 Berubeula FOP", "T301 Cecilyan FOP", "T304 Galboda OP1", "T305 Berubeula OP1"], ["T308 Ratnapura - Vithanakande OP"]]
+};
+
+var recipes = {
+name : ["Russie", "Mongolie", "Maroc", "Madagascar", "Etats-Unis", "Royaume-uni", "Inde", "Allemagne", "Tibet", "Yuzu", "Sakura", "Hawaii", "Jasmin"],
+name2 : ["russie", "mongolie", "maroc", "madagascar", "usa", "uk", "chandernagor", "allemagne", "tibet", "yuzu", "sakura", "hawaii", "jasmin"],
+number : [8, 3, 3, 4, 4, 6, 2, 2, 2, 2, 5, 3, 5],
+article : ["la ", "la ", "le ", "", "les ", "le ", "l'", "l'", "le ", "le ", "les fleurs de ", "", "les fleurs de "]
+}
+/*
+
+http://rozenfelds.r.o.pic.centerblog.net/o/39dfb587.jpg
+*/
+var myFunction = function() {
+var u = this.innerHTML.toString();
+var s = u.substring(0,3) == "Afr" ? u.replace("<br>", " ") : u.replace("<br>", "");
+var v = countries.name.indexOf(s);
+var z = document.getElementById("displaytxt").innerHTML = s + loremipsum.repeat(3);
+var img = document.getElementById("displayimg");
+var imgsrc = countries.number[v];
+var randomsrc = "Images/" + countries.name2[v] + (Math.ceil(Math.random() * imgsrc)) + ".jpg";
+randomsrc.toString();
+img.src = randomsrc;
+var discover = document.getElementById("decouvrir").innerHTML = "Découvrez les thés " + countries.article[v] + s;
+var limit = countries.regions[v].length;
+var r0 = document.querySelectorAll('.list')[0];
+for (var i = 0; i < limit; i++){
+var r1 = document.createElement("h1");
+r1.innerHTML = countries.regions[v][i];
+r0.appendChild(r1);
+var limit2 = countries.thes[i].length;
+for (var j = 0; j < limit2; j++){
+var r2 = document.createElement("ul");
+var r3 = document.createElement("li");
+r3.innerHTML = countries.thes[i][j];
+r2.appendChild(r3);
+r1.appendChild(r2);
+}
+}
+};
+
+var myFunctionbis = function() {
+var g = $(".history").index(this);
+var img2 = document.getElementById("displayimg");
+var imgsrc = recipes.number[g];
+var randomsrc = "Images/" + recipes.name2[g] + (Math.ceil(Math.random() * imgsrc)) + ".jpg";
+randomsrc.toString();
+img2.src = randomsrc;
+var j = document.getElementById("displaytxt").innerHTML = recipes.name[g] +  loremipsum.repeat(3);
+var discover = document.getElementById("decouvrir").innerHTML = "Découvrez  " + recipes.article[g] + recipes.name[g] + " et Mariage Frères";
+};
+
+var myFunction2 = function() {
+$("#display").animate({width: "65vw"}, 500);
+$("#displayimg").animate({maxWidth: "80%"}, 500);
+$("#displaytxt").fadeIn(1500);
+$("#decouvrir").fadeIn(1500);
+$("#imgcontainer").fadeIn(1500);
+$("#mfbar").fadeIn(1500);
+};
+
+for(var i = 0; i < classname.length; i++){
+classname[i].addEventListener("click", myFunction);
+classname[i].addEventListener("click", myFunction2);
+}
+
+for(var k = 0; k < classname2.length; k++){
+classname2[k].addEventListener("click", myFunctionbis);
+classname2[k].addEventListener("click", myFunction2);
+}
+
+var myFunction3 = function() {
+$("#display").animate({width: "0vw"}, 500);
+$("#displayimg").animate({maxWidth: "0%"}, 500);
+$("#displaytxt").hide();
+$("#decouvrir").hide();
+$("#imgcontainer").fadeOut(200);
+$("#mfbar").hide();
+}
+
+var myFunction4 = function() {
+$("#display2").animate({width: "65vw"}, 500);
+$(".list").fadeIn(1500);
+$("#mflogo2").fadeIn(1500);
+}
+
+var myFunction5 = function() {
+var k = document.querySelectorAll("ul");
+var c = document.querySelectorAll("h1");
+for (var i = 0; i < k.length; i++){
+k[i].remove()
+c[i].remove()
+}
+}
+
+var myFunction4bis = function() {
+var r = $("#display2");
+r.animate({width: "0vw"}, 400);
+$(".list").hide(100);
+$("#mflogo2").hide(100);
+}
+
+var displayclose1 = document.querySelectorAll('.displayclose1')[0];
+displayclose1.addEventListener("click", myFunction3);
+displayclose1.addEventListener("click", myFunction5);
+
+var displayclose2 = document.querySelectorAll('.displayclose1')[1];
+displayclose2.addEventListener("click", myFunction4bis);
+
+var display2anime = document.getElementById("decouvrir");
+display2anime.addEventListener("click",  myFunction4);
+/*var w = document.getElementById("display");
+alert(window.getComputedStyle(w).width);*/
+});
+</script>    
+
+    </body>
+
+</html>
+
+
+
+
+
+
