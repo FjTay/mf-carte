@@ -30,12 +30,11 @@ bottom: 0;
 position: absolute;
 }
 #main{
-background:beige;
+background:papayawhip;
 width: 100%;
 height: 90%;
 position: absolute;
-background-image: url(Images/papier4.jpg);
-background-size:100% 100%;
+background-color:papayawhip;
 }
 #map{
 background-image:url(Images/carte2.png);
@@ -199,8 +198,7 @@ cursor:pointer;;
 }
 #display{
 width: 0vw;
-background-image: url(Images/papier4.jpg);
-background-size:100% 100%;
+background-color:papayawhip;
 color: #F5F5DC;
 margin-top: 0vh;
 position:absolute;
@@ -356,13 +354,20 @@ left:3.5%;
 top:50%;
 }
 #jasmin {
-left:74%;
-top:40%;
+left:74.1%;
+top:39.8%;
+}
+#italie {
+left:49%;
+top:35%;
+}
+#bresil {
+left:34%;
+top:68%;
 }
 #display2{
 width: 0vw;
-background-image: url(Images/papier4.jpg);
-background-size:100% 100%;
+background-color:papayawhip;
 color: #F5F5DC;
 margin-top: 0vh;
 position:absolute;
@@ -405,7 +410,7 @@ li:hover{
 #mflogo2{
   width:15vh;
   height:15vh;
-  background-image: url(Images/mflogo3.png);
+  background-image: url(Images/mflogo.png);
   background-size:100% 100%;
   margin:auto;
   display:none;/*important pour le fadein*/
@@ -486,6 +491,8 @@ li:hover{
 <div id='sakura' class="history"></div>
 <div id='hawaii' class="history"></div>
 <div id='jasmin' class="history"></div>
+<div id='italie' class="history"></div>
+<div id='bresil' class="history"></div>
 
 </div>
 </div>
@@ -506,29 +513,31 @@ var countries = {
 name : ["Ceylan", "Formose", "Perse", "Colombie", "Caucase", "Ile Maurice", "Inde", "Népal", "Corée", "Java", "Nouvelle-Zélande", "France", "Chine",
 "Argentine", "Triangle d'Or", "Japon", "Afrique Orientale", "Afrique Australe", "Ecosse"],
 name2 : ["ceylan", "formose", "perse", "colombie", "caucase", "maurice", "inde", "nepal", "coree", "java", "nz", "france", "chine", "argentine", "thailande", "japon", "kenya", "afsud", "ecosse"],
-number : [2, 5, 3, 6, 5, 3, 7, 5, 6, 4, 6, 3, 5, 6, 3, 7, 3, 3, 3],
+number : [3, 4, 5, 6, 5, 4, 7, 5, 6, 4, 6, 4, 5, 6, 3, 7, 3, 3, 3],
 article : ["de ", "de ", "de ", "de ", "du ", "de l'", "d'", "du ", "de ", "de ", "de ", "de ", "de ", "d' ", "du ", "du ", "d'", "d'", "d'"],
 regions :[["Nuwara Eliya", "Dimbula", "Uva", "Galle", "Ratnapura"]],
 thes : [["T306 Numara Eliya - Court Lodge OP", "Lover's Leap Pekoe"], ["T302 Pettiagalla OP", "T303 Kenilworth OP1", "T307 Pettiagalla OP", "T313 Dimbula BOP"], ["T3081 Saint-james - Shawlands OP", "T310 Uva Highlands FP", "T312 Saint James BOP", "T3121 Aislaby BOP", "T314 Uva Highlands BOP", "T317 Uva Highlands BOPF", "T330 Black Wood OP1", "T331 Black Wood Pekoe", "T332 Black Wood BOP"], ["T300 Berubeula FOP", "T301 Cecilyan FOP", "T304 Galboda OP1", "T305 Berubeula OP1"], ["T308 Ratnapura - Vithanakande OP"]]
 };
 
 var recipes = {
-name : ["Russie", "Mongolie", "Maroc", "Madagascar", "Etats-Unis", "Royaume-uni", "Inde", "Allemagne", "Tibet", "Yuzu", "Sakura", "Hawaii", "Jasmin"],
-name2 : ["russie", "mongolie", "maroc", "madagascar", "usa", "uk", "chandernagor", "allemagne", "tibet", "yuzu", "sakura", "hawaii", "jasmin"],
-number : [8, 3, 3, 4, 4, 6, 2, 2, 2, 2, 5, 3, 5],
-article : ["la ", "la ", "le ", "", "les ", "le ", "l'", "l'", "le ", "le ", "les fleurs de ", "", "les fleurs de "]
+name : ["Russie", "Mongolie", "Maroc", "Madagascar", "Etats-Unis", "Royaume-uni", "Inde", "esprit de Noël", "Tibet", "Yuzu", "Sakura", "Hawaii", "Jasmin", "", ""],
+name2 : ["russie", "mongolie", "maroc", "madagascar", "usa", "uk", "chandernagor", "allemagne", "tibet", "yuzu", "sakura", "hawaii", "jasmin", "italie", "bresil"],
+number : [8, 3, 3, 4, 4, 5, 2, 2, 2, 2, 5, 4, 5, 2, 5],
+article : ["la ", "la ", "le ", "", "les ", "le ", "l'", "l'", "le ", "le ", "les fleurs de ", "", "les fleurs de ", "l'opéra italien ", "l'Amérique Latine "]
 }
-/*
 
-http://rozenfelds.r.o.pic.centerblog.net/o/39dfb587.jpg
-*/
-var myFunction = function() {
+var counter = "";
+var counter2 = "";
+
+myFunction = function() {
 var u = this.innerHTML.toString();
 var s = u.substring(0,3) == "Afr" ? u.replace("<br>", " ") : u.replace("<br>", "");
 var v = countries.name.indexOf(s);
 var z = document.getElementById("displaytxt").innerHTML = s + loremipsum.repeat(3);
 var img = document.getElementById("displayimg");
 var imgsrc = countries.number[v];
+counter = countries.name2[v];
+counter2 = countries.number[v];
 var randomsrc = "Images/" + countries.name2[v] + (Math.ceil(Math.random() * imgsrc)) + ".jpg";
 randomsrc.toString();
 img.src = randomsrc;
@@ -554,12 +563,25 @@ var myFunctionbis = function() {
 var g = $(".history").index(this);
 var img2 = document.getElementById("displayimg");
 var imgsrc = recipes.number[g];
+counter = recipes.name2[g];
+counter2 = recipes.number[g];
 var randomsrc = "Images/" + recipes.name2[g] + (Math.ceil(Math.random() * imgsrc)) + ".jpg";
 randomsrc.toString();
 img2.src = randomsrc;
 var j = document.getElementById("displaytxt").innerHTML = recipes.name[g] +  loremipsum.repeat(3);
 var discover = document.getElementById("decouvrir").innerHTML = "Découvrez  " + recipes.article[g] + recipes.name[g] + " et Mariage Frères";
 };
+
+$("#displayimg").click(function() {
+    $("#displayimg").fadeOut(500, function() {
+var src = this.src;
+src.toString();
+var src2 = parseInt(src.charAt(src.length - 5))+1;
+counter.toString();
+var src3 = counter2;
+        $("#displayimg").attr("src", "Images/" + counter + (src2 > src3 ? 1 : src2) + ".jpg");
+    }).fadeIn(500);
+});
 
 var myFunction2 = function() {
 $("#display").animate({width: "65vw"}, 500);
