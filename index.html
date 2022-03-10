@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta>
+      <meta charset="UTF-8">
         <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -461,11 +461,11 @@ li:hover{
 <div id='ceylan' class='origin'>Ceylan</div>
 <div id='inde' class='origin'>Inde</div>
 <div id='chine' class='origin'>Chine</div>
-<div id='coree' class='origin'>Corée</div>
+<div id='coree' class='origin'>Corï¿½e</div>
 <div id='japon' class='origin'>Japon</div>
 <div id='java' class='origin'>Java</div>
-<div id='nzelande' class='origin'>Nouvelle-<br>Zélande</div>
-<div id='nepal' class='origin'>Népal</div>
+<div id='nzelande' class='origin'>Nouvelle-<br>Zï¿½lande</div>
+<div id='nepal' class='origin'>Nï¿½pal</div>
 <div id='perse' class='origin'>Perse</div>
 <div id='afriqueorientale' class='origin'>Afrique<br>Orientale</div>
 <div id='afriqueaustrale' class='origin'>Afrique<br>Australe</div>
@@ -510,7 +510,7 @@ var loremipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d
 
 
 var countries = {
-name : ["Ceylan", "Formose", "Perse", "Colombie", "Caucase", "Ile Maurice", "Inde", "Népal", "Corée", "Java", "Nouvelle-Zélande", "France", "Chine",
+name : ["Ceylan", "Formose", "Perse", "Colombie", "Caucase", "Ile Maurice", "Inde", "Nï¿½pal", "Corï¿½e", "Java", "Nouvelle-Zï¿½lande", "France", "Chine",
 "Argentine", "Triangle d'Or", "Japon", "Afrique Orientale", "Afrique Australe", "Ecosse"],
 name2 : ["ceylan", "formose", "perse", "colombie", "caucase", "maurice", "inde", "nepal", "coree", "java", "nz", "france", "chine", "argentine", "thailande", "japon", "kenya", "afsud", "ecosse"],
 number : [3, 4, 5, 6, 5, 4, 7, 5, 6, 4, 6, 4, 5, 6, 3, 7, 3, 3, 3],
@@ -520,10 +520,10 @@ thes : [["T306 Numara Eliya - Court Lodge OP", "Lover's Leap Pekoe"], ["T302 Pet
 };
 
 var recipes = {
-name : ["Russie", "Mongolie", "Maroc", "Madagascar", "Etats-Unis", "Royaume-uni", "Inde", "esprit de Noël", "Tibet", "Yuzu", "Sakura", "Hawaii", "Jasmin", "", ""],
+name : ["Russie", "Mongolie", "Maroc", "Madagascar", "Etats-Unis", "Royaume-uni", "Inde", "esprit de Noï¿½l", "Tibet", "Yuzu", "Sakura", "Hawaii", "Jasmin", "", ""],
 name2 : ["russie", "mongolie", "maroc", "madagascar", "usa", "uk", "chandernagor", "allemagne", "tibet", "yuzu", "sakura", "hawaii", "jasmin", "italie", "bresil"],
 number : [8, 3, 3, 4, 4, 5, 2, 2, 2, 2, 5, 4, 5, 2, 5],
-article : ["la ", "la ", "le ", "", "les ", "le ", "l'", "l'", "le ", "le ", "les fleurs de ", "", "les fleurs de ", "l'opéra italien ", "l'Amérique Latine "]
+article : ["la ", "la ", "le ", "", "les ", "le ", "l'", "l'", "le ", "le ", "les fleurs de ", "", "les fleurs de ", "l'opï¿½ra italien ", "l'Amï¿½rique Latine "]
 }
 
 var counter = "";
@@ -541,7 +541,7 @@ counter2 = countries.number[v];
 var randomsrc = "Images/" + countries.name2[v] + (Math.ceil(Math.random() * imgsrc)) + ".jpg";
 randomsrc.toString();
 img.src = randomsrc;
-var discover = document.getElementById("decouvrir").innerHTML = "Découvrez les thés " + countries.article[v] + s;
+var discover = document.getElementById("decouvrir").innerHTML = "Dï¿½couvrez les thï¿½s " + countries.article[v] + s;
 var limit = countries.regions[v].length;
 var r0 = document.querySelectorAll('.list')[0];
 for (var i = 0; i < limit; i++){
@@ -569,7 +569,7 @@ var randomsrc = "Images/" + recipes.name2[g] + (Math.ceil(Math.random() * imgsrc
 randomsrc.toString();
 img2.src = randomsrc;
 var j = document.getElementById("displaytxt").innerHTML = recipes.name[g] +  loremipsum.repeat(3);
-var discover = document.getElementById("decouvrir").innerHTML = "Découvrez  " + recipes.article[g] + recipes.name[g] + " et Mariage Frères";
+var discover = document.getElementById("decouvrir").innerHTML = "Dï¿½couvrez  " + recipes.article[g] + recipes.name[g] + " et Mariage Frï¿½res";
 };
 
 $("#displayimg").click(function() {
